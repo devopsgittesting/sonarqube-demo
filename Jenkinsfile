@@ -6,8 +6,8 @@ pipeline {
 
             steps {
                 fileExists 'pom.xml'
-                withMaven(maven : 'maven_3_8_1') {
-                    sh 'mvn clean compile'
+                
+                    sh 'mvn compile'
                 }
             }
         }
@@ -15,8 +15,8 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_8_1') {
-                    sh 'mvn test'
+      
+                    sh 'mvn clean test'
                 }
             }
         }
@@ -24,15 +24,15 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3_8_1') {
-                    sh 'mvn deploy'
+               
+                    sh 'mvn package'
                 }
             }
         }
             
           stage ('Archive Stage') {
             steps {
-                withMaven(maven : 'maven_3_8_1') {
+             
                    archiveArtifacts '**/target/jenkins-git-maven-web-0.5.0-SNAPSHOT.war'
                 }
             }   

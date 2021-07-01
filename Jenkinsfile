@@ -10,7 +10,7 @@ pipeline {
                     sh 'mvn compile'
                 }
             }
-        }
+        
 
         stage ('Testing Stage') {
 
@@ -19,7 +19,7 @@ pipeline {
                     sh 'mvn clean test'
                 }
             }
-        }
+        
 
 
         stage ('Deployment Stage') {
@@ -28,7 +28,7 @@ pipeline {
                     sh 'mvn package'
                 }
             }
-        }
+        
             
           stage ('Archive Stage') {
             steps {
@@ -36,9 +36,8 @@ pipeline {
                    archiveArtifacts '**/target/jenkins-git-maven-web-0.5.0-SNAPSHOT.war'
                 }
             }   
+           
             
-            
-            
-        }
+       
     }
 }

@@ -33,7 +33,7 @@ pipeline {
           stage ('Archive Stage') {
             steps {
              
-                   archiveArtifacts '**/target/jenkins-git-maven-web-0.5.0-SNAPSHOT.war'
+                   archiveArtifacts '**/target/myweb-0.0.2-SNAPSHOT.war'
                 }
             }   
            

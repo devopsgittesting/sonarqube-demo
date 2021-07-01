@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
+        stage ('BuildStage') {
 
             steps {
+                fileExists 'pom.xml'
                 withMaven(maven : 'maven_3_8_1') {
                     sh 'mvn clean compile'
                 }
@@ -27,6 +28,17 @@ pipeline {
                     sh 'mvn deploy'
                 }
             }
+        }
+            
+          stage ('Archive Stage') {
+            steps {
+                withMaven(maven : 'maven_3_8_1') {
+                   archiveArtifacts '**/target/jenkins-git-maven-web-0.5.0-SNAPSHOT.war'
+                }
+            }   
+            
+            
+            
         }
     }
 }

@@ -39,7 +39,7 @@ pipeline {
              stage ('cp Stage') {
             steps {
              
-                   sh "sudo cp -rf /var/lib/jenkins/workspace/Pipeline-Maven-jenkinsfile-git-artifacts/target/*.war' /root/jenkins/apache-tomcat-9.0.48/webapps"
+                   sh "sudo cp -rf /var/lib/jenkins/workspace/myweb-0.0.2-SNAPSHOT/target/*.war' /root/jenkins/apache-tomcat-9.0.48/webapps"
                 }
             }   
       

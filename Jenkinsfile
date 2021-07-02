@@ -39,7 +39,7 @@ pipeline {
              stage ('cp Stage') {
             steps {
              
-                   sh "cp -rf '**/target/myweb-0.0.2-SNAPSHOT.war' /root/jenkins/apache-tomcat-9.0.48/webapps"
+                   sh "sudo cp -rf '**/target/myweb-0.0.2-SNAPSHOT.war' /root/jenkins/apache-tomcat-9.0.48/webapps"
                 }
             }   
        

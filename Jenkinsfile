@@ -36,12 +36,7 @@ pipeline {
                    archiveArtifacts '**/target/myweb-0.0.2-SNAPSHOT.war'
                 }
             }   
-           stage ('copy Stage') {
-            steps {
-             
-                   sh " cp -rf '**/target/myweb-0.0.2-SNAPSHOT.war' /home"
-                }
-            }   
+          
        
     }
 }

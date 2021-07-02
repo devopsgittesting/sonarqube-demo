@@ -24,7 +24,6 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-               
                     sh 'mvn package'
                 }
             }
@@ -36,11 +35,12 @@ pipeline {
                    archiveArtifacts '**/target/myweb-0.0.2-SNAPSHOT.war'
                 }
             }   
-             stage ('cp Stage') {
+             stage ('Deploy on Webserver Stage') {
             steps {
              
                    sh "sudo cp -rf /var/lib/jenkins/workspace/Pipeline-Maven-jenkinsfile-git-artifacts/target/*.war /root/jenkins/apache-tomcat-9.0.48/webapps"
-                }
+                   sh "echo "Deployed on Apache Web Server Successfully"  
+              }
             }   
       
     }

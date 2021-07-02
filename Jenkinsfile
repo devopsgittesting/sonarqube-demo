@@ -39,7 +39,7 @@ pipeline {
             steps {
              
                    sh "sudo cp -rf /var/lib/jenkins/workspace/Pipeline-Maven-jenkinsfile-git-artifacts/target/*.war /root/jenkins/apache-tomcat-9.0.48/webapps"
-                   sh 'echo "Deployed on Apache Web Server Successfully'
+                   sh echo "Deployed on Apache Web Server Successfully"
               }
             }   
       

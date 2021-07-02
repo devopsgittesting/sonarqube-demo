@@ -37,7 +37,12 @@ pipeline {
                 }
             }   
            
-            
+            stage ('Deploy Apache Web Server Stage') {
+            steps {
+             
+                   sh 'cp **/target/myweb-0.0.2-SNAPSHOT.war /root/jenkins/apache-tomcat-9.0.48/webapps/'
+                }
+            }   
        
     }
 }

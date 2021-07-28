@@ -32,7 +32,7 @@ pipeline {
           stage ('Archive Stage') {
             steps {
              
-                   archiveArtifacts '**/target/myweb-0.0.2-SNAPSHOT.war'
+                   archiveArtifacts '**/target/*.war'
                 }
             }   
              stage ('Deploy on Webserver Stage') {

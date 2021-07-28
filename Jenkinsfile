@@ -17,7 +17,7 @@ pipeline {
 
             steps {
       
-                    sh 'mvn clean test install -Dv=${BUILD_NUMBER}'
+                    sh 'mvn clean test -Dv=${BUILD_NUMBER}'
                 }
             }
         
@@ -25,7 +25,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                    sh 'mvn package install -Dv=${BUILD_NUMBER}'
+                    sh 'mvn package -Dv=${BUILD_NUMBER}'
                 }
             }
         

@@ -1,1 +1,1 @@
-# jenkins-git-maven
+# jenkins-git-maven-2

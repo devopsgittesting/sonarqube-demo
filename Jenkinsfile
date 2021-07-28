@@ -32,13 +32,13 @@ pipeline {
           stage ('Archive Stage') {
             steps {
              
-                   archiveArtifacts '**/target/myweb-0.0.2-SNAPSHOT.war'
+                   archiveArtifacts '**/target/myweb-0.0.2-SNAPSHOT.war_V1.$BUILD_ID'
                 }
             }   
              stage ('Deploy on Webserver Stage') {
             steps {
              
-                   sh "sudo cp -rf /var/lib/jenkins/workspace/Pipeline-Maven-jenkinsfile-git-artifacts/target/*.war /root/jenkins/apache-tomcat-9.0.48/webapps"
+                   sh "sudo cp -rf /var/lib/jenkins/workspace/Pipeline-Maven-jenkinsfile-git-artifacts/target/*.war_V1.$BUILD_ID /root/jenkins/apache-tomcat-9.0.48/webapps"
            
               }
             }   

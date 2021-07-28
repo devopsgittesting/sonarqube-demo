@@ -7,7 +7,7 @@ pipeline {
             steps {
                 fileExists 'pom.xml'
                 
-                    sh 'mvn compile'
+                    sh 'mvn compile install -Dv=${BUILD_NUMBER}'
                
                 }
             }
@@ -25,7 +25,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                    sh 'mvn package'
+                    sh 'mvn package install -Dv=${BUILD_NUMBER}'
                 }
             }
         

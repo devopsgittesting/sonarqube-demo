@@ -8,7 +8,7 @@ pipeline {
                 fileExists 'pom.xml'
                 
                     sh 'mvn compile'
-                    sh 'mvn clean install -Dv=${BUILD_NUMBER}'
+               
                 }
             }
         
@@ -17,7 +17,7 @@ pipeline {
 
             steps {
       
-                    sh 'mvn clean test '
+                    sh 'mvn clean test install -Dv=${BUILD_NUMBER}'
                 }
             }
         
@@ -39,7 +39,7 @@ pipeline {
              stage ('Deploy on Webserver Stage') {
             steps {
              
-                   sh "sudo cp -rf /var/lib/jenkins/workspace/Pipeline-Maven-jenkinsfile-git-artifacts/target/*.war /root/jenkins/apache-tomcat-9.0.48/webapps"
+                   sh "sudo cp -rf /var/lib/jenkins/workspace/jenkins-tag-pipeline/target/*.war /root/jenkins/apache-tomcat-9.0.48/webapps"
            
               }
             }   

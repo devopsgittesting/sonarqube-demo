@@ -16,7 +16,7 @@ pipeline {
 
             steps {
       
-                    sh 'mvn clean test'
+                    sh 'mvn clean test install -Dv=${BUILD_NUMBER}'
                 }
             }
         

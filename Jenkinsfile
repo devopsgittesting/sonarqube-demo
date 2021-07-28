@@ -7,7 +7,8 @@ pipeline {
             steps {
                 fileExists 'pom.xml'
                 
-                    sh 'mvn compile install -Dv=${BUILD_NUMBER}'
+                    sh 'mvn compile'
+                    sh 'mvn clean install -Dv=${BUILD_NUMBER}'
                 }
             }
         
@@ -32,7 +33,7 @@ pipeline {
           stage ('Archive Stage') {
             steps {
              
-                archiveArtifacts '**/target/my-app-1.${BUILD_NUMBER}-SNAPSHOT.war'
+                archiveArtifacts '**/target/.war'
                 }
             }   
              stage ('Deploy on Webserver Stage') {
